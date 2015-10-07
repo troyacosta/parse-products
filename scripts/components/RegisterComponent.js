@@ -19,8 +19,20 @@ module.exports = React.createClass({
 						{errorElement}
 						<div className="row">
 							<div className="input-field col s12">
+								<input type="text" ref="firstName" className="validate" id="firstName" />
+								<label htmlFor="firstName">First Name</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="input-field col s12">
+								<input type="text" ref="lastName" className="validate" id="lastName" />
+								<label htmlFor="lastName">Last Name</label>
+							</div>
+						</div>
+						<div className="row">
+							<div className="input-field col s12">
 								<input type="text" ref="email" className="validate" id="email_address" />
-								<label htmlFor="first_name">Email Address</label>
+								<label htmlFor="email">Email Address</label>
 							</div>
 						</div>
 						<div className="row">
@@ -42,6 +54,8 @@ module.exports = React.createClass({
 		var user = new Parse.User();
 		user.signUp(
 			{
+				firstName: this.refs.firstName.getDOMNode().value,
+				lastName: this.refs.lastName.getDOMNode().value,
 				username: this.refs.email.getDOMNode().value,
 				password: this.refs.password.getDOMNode().value,
 				email: this.refs.email.getDOMNode().value
